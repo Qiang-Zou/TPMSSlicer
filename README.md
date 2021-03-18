@@ -7,7 +7,7 @@ It can be compiled with QT 5.15+MSVC 15.0, and run on the operating system Windo
 
 
 *****************************************************************
-STL-Free Slicer for Triply Periodic Minimal Surfaces (TPMSlicer)
+STL-Free Slicer for Triply Periodic Minimal Surfaces (TPMSSlicer)
 *****************************************************************
 By: Qiang Zou (built on top of Charlie C. L. Wang's MeshWorks)
 email: qzou.code@gmail.com
@@ -18,7 +18,7 @@ Latest Release: 2021-03
 1.Copyright
 -----------
 
-- TPMSlicer is developed by Qiang Zou based on [1-3] for research use. All rights about the program are reserved by Qiang Zou. This C++ source codes are available only for academic purposes. No secondary use, such as copy, distribution, diversion, business purpose, etc., is allowed. In no event shall the author be liable to any party for direct, indirect, special, incidental, or consequential damage arising out of the use of this program. TPMSlicer is self-contained. 
+- TPMSSlicer is developed by Qiang Zou based on [1-3] for research use. All rights about the program are reserved by Qiang Zou. This C++ source codes are available only for academic purposes. No secondary use, such as copy, distribution, diversion, business purpose, etc., is allowed. In no event shall the author be liable to any party for direct, indirect, special, incidental, or consequential damage arising out of the use of this program. TPMSSlicer is self-contained. 
 
 
 2.Download
@@ -26,7 +26,7 @@ Latest Release: 2021-03
 
 - The source code, as well as the testing data, can be downloaded from the page: 
   
-  webpage: https://github.com/Qiang-Zou/TPMSlicer
+  webpage: https://github.com/Qiang-Zou/TPMSSlicer
 
 
 3.Installing & Compiling (Windows+QT5.15+MSVS15.0)
