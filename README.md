@@ -50,14 +50,18 @@ Latest Release: 2021-03
 - For each layer, the contours are stored using the variable "result". You can add your customized processing code in the following section:
 
 // LatticeModeler.cpp
+
 line 140   auto result = msb.getContours(false);
+
 line 141   //.......................
+
 ...        	// do things with "result"
 
 line 144  //........................
 
 
-References:
+4.References
+-------
 
 [1] Pu Huang, Charlie C.L. Wang, and Yong Chen, "Intersection-free and topologically faithful slicing of implicit solid", ASME Transactions - Journal of Computing and Information Science in Engineering, vol.13, no.2, 021009 (13 pages), June 2013.
 
