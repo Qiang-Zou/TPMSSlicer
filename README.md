@@ -15,13 +15,13 @@ webpage: https://qiang-zou.github.io/
 Latest Release: 2021-03
 *****************************************************************
 
-1. Copyright
+1.Copyright
 -----------
 
 - TPMSlicer is developed by Qiang Zou based on [1-3] for research use. All rights about the program are reserved by Qiang Zou. This C++ source codes are available only for academic purposes. No secondary use, such as copy, distribution, diversion, business purpose, etc., is allowed. In no event shall the author be liable to any party for direct, indirect, special, incidental, or consequential damage arising out of the use of this program. TPMSlicer is self-contained. 
 
 
-2. Download
+2.Download
 ----------
 
 - The source code, as well as the testing data, can be downloaded from the page: 
@@ -29,14 +29,14 @@ Latest Release: 2021-03
   webpage: https://github.com/Qiang-Zou/TPMSlicer
 
 
-3. Installing & Compiling (Windows+QT5.15+MSVS15.0)
+3.Installing & Compiling (Windows+QT5.15+MSVS15.0)
 -------------------------------------------
 
 - Simply download the source code to a suitable place, add Eigen Library to the root directory, and use QT5.15+MSVS15.0 to build the project.
 
 
 
-4. Usage
+4.Usage
 -------
 
 - After the compilation you can run the tool 3DPrintPlanner.exe inside the ./build/release/ directory:
@@ -60,7 +60,7 @@ line 141   //.......................
 line 144  //........................
 
 
-5. References
+5.References
 -------
 
 [1] Pu Huang, Charlie C.L. Wang, and Yong Chen, "Intersection-free and topologically faithful slicing of implicit solid", ASME Transactions - Journal of Computing and Information Science in Engineering, vol.13, no.2, 021009 (13 pages), June 2013.
