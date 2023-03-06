@@ -7,7 +7,7 @@
 #include <set>
 #include <fstream>
 #include <iostream>
-
+#include <map>
 
 #include "../GLKLib/GLKObList.h"
 
@@ -17,6 +17,7 @@
 #include "QMeshLib/QMesh/QMeshPatch.h"
 
 #include "Eigen/Core"
+#include "ParallelMarchingSquare.h"
 using namespace Eigen;
 
 class TPMS;
@@ -35,13 +36,18 @@ public:
 
     // 3d printing
     bool sliceModelImplicit();
-
+	void outputOFF(string &path, int pixelNum, int* lpedgeNum, int loopNum, map<int, int> &mp, ContourEdge* edges);
+	bool writeCLI(std::string &path, std::vector<ContourEdge*> &layer, vector<int> &edgeNum, vector<map<int, int>> &mpvector, vector<int*> &lpenumvector);
 
 private:
     std::shared_ptr<TPMS> ptrModel;
     double tolerence;
     std::string pathOfFiles;
     std::vector<std::shared_ptr<QMeshPatch>> layers;
+	std::vector<ContourEdge*> layer;
+	std::vector<int> edgeNum;
+	std::vector<map<int, int>>mpvector;
+	std::vector<int*>lpenumvector;
 };
 
 
@@ -58,7 +64,7 @@ class TPMS {
 public:
     TPMS() {}
     TPMS(double upperBound_, double lowerBound_) : upperBound(upperBound_), lowerBound(lowerBound_) {}
-    TPMS(double upperBound_, double lowerBound_, Vector3d left_, Vector3d right_) : upperBound(upperBound_), lowerBound(lowerBound_), left(left_), right(right_) {}
+    TPMS(int idx_,double upperBound_, double lowerBound_, Vector3d left_, Vector3d right_) : idx(idx_),upperBound(upperBound_), lowerBound(lowerBound_), left(left_), right(right_) {}
     ~TPMS(){}
 
     virtual std::string getSurfaceType() = 0;
@@ -74,7 +80,9 @@ public:
     void getBounds(double& upperBound_, double& lowerBound_) {upperBound_ = upperBound; lowerBound_ = lowerBound;}
     void setBBox(Vector3d left_, Vector3d right_) {left = left_; right = right_;}
     void getBBox(Vector3d& left_, Vector3d& right_) {left_ = left; right_ = right;}
+	void getIdx(int& idx_) { idx_ = idx; }
 
+	int idx;
     double upperBound; // upperBound and lowerBound define the solid
     double lowerBound;
     Vector3d left; // bounding box
@@ -84,7 +92,7 @@ public:
 class TPMSSchwarz : public TPMS{
 public:
     TPMSSchwarz(double upperBound_, double lowerBound_) : TPMS(upperBound_, lowerBound_) {}
-    TPMSSchwarz(double upperBound_, double lowerBound_, Vector3d left_, Vector3d right_) : TPMS(upperBound_, lowerBound_, left_, right_) {}
+    TPMSSchwarz(int idx_,double upperBound_, double lowerBound_, Vector3d left_, Vector3d right_) : TPMS(idx_,upperBound_, lowerBound_, left_, right_) {}
 
     std::string getSurfaceType() {return std::string("Schwarz-Primitive");}
 
@@ -96,7 +104,7 @@ public:
 class TPMSMultiscale : public TPMS{
 public:
     TPMSMultiscale(double upperBound_, double lowerBound_) : TPMS(upperBound_, lowerBound_) {}
-    TPMSMultiscale(double upperBound_, double lowerBound_, Vector3d left_, Vector3d right_) : TPMS(upperBound_, lowerBound_, left_, right_) {}
+    TPMSMultiscale(int idx_,double upperBound_, double lowerBound_, Vector3d left_, Vector3d right_) : TPMS(idx_,upperBound_, lowerBound_, left_, right_) {}
 
     std::string getSurfaceType() {return std::string("multiscale");}
 
@@ -112,7 +120,7 @@ public:
 class TPMSMultiscale2 : public TPMS {
 public:
     TPMSMultiscale2(double upperBound_, double lowerBound_) : TPMS(upperBound_, lowerBound_) {}
-    TPMSMultiscale2(double upperBound_, double lowerBound_, Vector3d left_, Vector3d right_) : TPMS(upperBound_, lowerBound_, left_, right_) {}
+    TPMSMultiscale2(int idx_,double upperBound_, double lowerBound_, Vector3d left_, Vector3d right_) : TPMS(idx_,upperBound_, lowerBound_, left_, right_) {}
 
     std::string getSurfaceType() {return std::string("multiscale2");}
 
@@ -141,7 +149,7 @@ public:
 class TPMSMultiscaleDistFieldBound : public TPMS{
 public:
     TPMSMultiscaleDistFieldBound(double upperBound_, double lowerBound_, string path) : TPMS(upperBound_, lowerBound_) {setDistField(path);}
-    TPMSMultiscaleDistFieldBound(double upperBound_, double lowerBound_, Vector3d left_, Vector3d right_, string path) : TPMS(upperBound_, lowerBound_, left_, right_) {setDistField(path);}
+    TPMSMultiscaleDistFieldBound(int idx_,double upperBound_, double lowerBound_, Vector3d left_, Vector3d right_, string path) : TPMS(idx_,upperBound_, lowerBound_, left_, right_) {setDistField(path);}
 
     void setDistField(std::string path) {
         // open file

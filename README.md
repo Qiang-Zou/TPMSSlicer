@@ -1,9 +1,6 @@
-The source code is for the method presented in
-
-Junhao Ding, Qiang Zou, Shuo Qu, Paulo Bartolo, Xu Song, Charlie C. L. Wang, STL-free digital design and manufacturing paradigm for high-precision selective laser melting, CIRP Annals. Accepted.
+The source code is for the method presented in [3].
 
 It can be compiled with QT 5.15+MSVC 15.0, and run on the operating system Windows 10.
-
 
 
 *****************************************************************
@@ -12,13 +9,13 @@ STL-Free Slicer for Triply Periodic Minimal Surfaces (TPMSSlicer)
 By: Qiang Zou (built on top of Charlie C. L. Wang's MeshWorks)
 email: qzou.code@gmail.com
 webpage: https://qiang-zou.github.io/
-Latest Release: 2021-03
+Latest Release: 2023-03 (updated by Sifan Chen)
 *****************************************************************
 
 1.Copyright
 -----------
 
-- TPMSSlicer is developed by Qiang Zou based on [1-3] for research use. All rights about the program are reserved by Qiang Zou. This C++ source codes are available only for academic purposes. No secondary use, such as copy, distribution, diversion, business purpose, etc., is allowed. In no event shall the author be liable to any party for direct, indirect, special, incidental, or consequential damage arising out of the use of this program. TPMSSlicer is self-contained. 
+- TPMSSlicer is developed by Qiang Zou and now maintained by Sifan Chen, based on [1-3] for research use. All rights about the program are reserved by Qiang Zou. This C++ source codes are available only for academic purposes. No secondary use, such as copy, distribution, diversion, business purpose, etc., is allowed. In no event shall the author be liable to any party for direct, indirect, special, incidental, or consequential damage arising out of the use of this program. TPMSSlicer is self-contained. 
 
 
 2.Download
@@ -65,7 +62,7 @@ line 144  //........................
 
 [1] Pu Huang, Charlie C.L. Wang, and Yong Chen, "Intersection-free and topologically faithful slicing of implicit solid", ASME Transactions - Journal of Computing and Information Science in Engineering, vol.13, no.2, 021009 (13 pages), June 2013.
 
-[2] Shengjun Liu, Tao Liu, Qiang Zou, Weiming Wang, Eugeni L. Doubrovski, and Charlie C.L. Wang, "Memory-efficient modeling and slicing of large-scale adaptive lattice structures", ASME Transactions - Journal of Computing and Information Science in Engineering, Accepted, 2020.
+[2] Shengjun Liu, Tao Liu, Qiang Zou, Weiming Wang, Eugeni L. Doubrovski, and Charlie C.L. Wang, "Memory-efficient modeling and slicing of large-scale adaptive lattice structures", ASME Transactions - Journal of Computing and Information Science in Engineering, vol.21, no.6, 061003 (16 pages), May 2021.
 
-[3] Junhao Ding, Qiang Zou, Shuo Qu, Paulo Bartolo, Xu Song, Charlie C. L. Wang, A new digital design and manufacturing paradigm for high precision powder bed fusion process. Accepted, 2021.
+[3] Junhao Ding, Qiang Zou, Shuo Qu, Paulo Bartolo, Xu Song, Charlie C. L. Wang, STL-free design and manufacturing paradigm for high-precision powder bed fusion. CIRP Annals 70.1 (2021): 167-170.
 
