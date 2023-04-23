@@ -26,11 +26,10 @@ Latest Release: 2023-03 (updated by Sifan Chen)
   webpage: https://github.com/Qiang-Zou/TPMSSlicer
 
 
-3.Installing & Compiling (Windows+QT5.15+MSVS15.0)
+3.Installing & Compiling (Windows+QT5.15+MSVS15.0+CUDA10.2)
 -------------------------------------------
 
-- Simply download the source code to a suitable place, add Eigen Library to the root directory, and use QT5.15+MSVS15.0 to build the project.
-
+- Simply download the source code to a suitable place, add Eigen Library to the root directory, and use QT5.15+MSVS15.0+CUDA10.2 to build the project.
 
 
 4.Usage
